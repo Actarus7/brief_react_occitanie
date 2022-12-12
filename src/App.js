@@ -2,7 +2,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <h1>J'ai faim</h1>
+      <h1>J'ai soif</h1>
       </header>
     </div>
   );
