@@ -66,11 +66,16 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Agenda Culturel Toulouse</h1>
-      </header>
+        <header className="App-header">
+            <h1>Agenda Culturel Toulouse</h1>
+            <div className='container'>
+                <div id="map">
+                    <Map ></Map>
+                </div>
+            </div>
+        </header>
     </div>
-  );
+);
 }
 
 export default App;
