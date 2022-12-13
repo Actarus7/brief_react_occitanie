@@ -1,3 +1,6 @@
+
+import { } from './App.css'
+import Map from './components/map';
 import React, { useEffect, useState, } from "react";
 
 function App() {
