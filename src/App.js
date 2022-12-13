@@ -2,34 +2,43 @@ import React, { useEffect, useState, } from "react";
 
 function App() {
 
-  const [dataEvent, setDataEvent] = useState(undefined)
-  
+  const [dataEvent, setDataEvent] = useState([])
 
 
-  useEffect(() =>
-  {
-    async function fetchData()
-    {
-      const response = await fetch('https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=agenda-des-manifestations-culturelles-so-toulouse&q=&facet=date_debut&facet=date_fin&facet=categorie_de_la_manifestation&facet=theme_de_la_manifestation');
-      const responseJson = await response.json();
-      const filterDefault = new Date(); // date actuelle
-      const filterMonthAddOne = filterDefault.setMonth(filterDefault.getMonth() + 1); //date augmenté de 1 mois
-      const date = Number(String(filterMonthAddOne.getFullYear()) + String(filterMonthAddOne.getMonth()) + String(filterMonthAddOne.getDate())); // date au format nombre
-      const dateEvent = Number(responseJson.records[0].fields.date_fin.replaceAll("-", "")); // replaceAll permet de supprimer tous les tirets et concatenne la date, Number transforme la date en string en number.
-      if(date < dateEvent){
-        console.log(dateEvent);
-      }
-      setDataEvent(responseJson)
+
+  useEffect(() => {
+    /* const url = filtreDefault()
+    console.log(url); */
+    
+    async function fetchData(url) {
+      const response = await fetch('https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=agenda-des-manifestations-culturelles-so-toulouse&q=&rows=100&facet=date_debut&facet=date_fin&facet=categorie_de_la_manifestation&facet=theme_de_la_manifestation&refine.date_fin=2023%2F01');
+      const data = await response.json();
+      const events = data.records;
+      setDataEvent(events)
+
     }
+
+    /* function filtreDefault() {
+      const dateNow = new Date()
+      console.log(dateNow);
+      const datePlus1Mois = dateNow.setMonth(dateNow.getMonth()+1)
+      const year = datePlus1Mois/1000
+      const month = datePlus1Mois
+      const date = datePlus1Mois
+      const test = `${year}%2F${month}%2F${date}`
+      console.log(datePlus1Mois);
+      console.log(test);
+      return datePlus1Mois
+    } */
     fetchData();
-    console.log(dataEvent)
 
   }, []);
+  console.log(dataEvent);
 
   return (
     <div className="App">
       <header className="App-header">
-      <h1>Agenda Culturel Toulouse</h1>
+        <h1>Agenda Culturel Toulouse</h1>
       </header>
     </div>
   );
