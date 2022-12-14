@@ -1,4 +1,4 @@
-export function Accueil() {
+export function Navbar() {
     return (
 
         <nav class="navbar navbar-expand-lg bg-red">
@@ -7,9 +7,9 @@ export function Accueil() {
                 <img src="/icone1.jpg" alt="icon" width="70" height="60" className="mx-2" />
 
 
-                <div className=" text-break">
-                    <p class="navbar-brand" >Agenda culturel en Occitanie</p>
-                </div>
+
+                <a class="navbar-brand" >Agenda culturel en Occitanie</a>
+
 
                 <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

@@ -1,7 +1,7 @@
 import { } from './App.css'
 import Map from './components/map';
 import React, { useEffect, useState, } from "react";
-import { Accueil } from './components/navbar';
+import { Navbar } from './components/navbar';
 
 function App() {
   const [dataEvent, setDataEvent] = useState([])
@@ -54,7 +54,7 @@ function App() {
   return (
     <div className="App">
       <header className=" bg-red shadow">
-        <Accueil ></Accueil>
+        <Navbar ></Navbar>
       </header>
 
       <main className='container '>
