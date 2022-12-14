@@ -1,25 +1,36 @@
 import { MapContainer, Marker, TileLayer, Popup } from 'react-leaflet'
 import { } from '../App.css'
+import { map, marker } from 'leaflet'
 
 export default function Map(props) {
     console.log(props.data);
 
-    let fields = [];
+    let markerList = [];
 
     if (props.data.length) {
-        fields = props.data?.map((elem, i) => {
+        markerList = props.data?.map((elem, i) => {
             if (elem.fields && elem.fields.geo_point) {
-                return <><Marker key={i} position={elem.fields?.geo_point}>
-                <Popup>{elem.fields?.categorie_de_la_manifestation} <br/>
-                {elem.fields?.nom_de_la_manifestation}<br/>
-                {elem.fields?.dates_affichage_horaires}<br/><br/>
-                {elem.fields?.descriptif_court}<br/>{/*Lien de la card*/}</Popup> 
-                </Marker> </>
-                
-                            
+                return <Marker eventHandlers={{
+                    click: () => {
+                        map.setView(
+                            [
+                                marker.geometry.coordinates[1],
+                                marker.geometry.coordinates[0]
+                            ],
+                            16
+                        );
+                    }
+                }} key={i} position={elem.fields?.geo_point}>
+                    <Popup>{elem.fields?.categorie_de_la_manifestation} <br />
+                        {elem.fields?.nom_de_la_manifestation}<br />
+                        {elem.fields?.dates_affichage_horaires}<br /><br />
+                        {elem.fields?.descriptif_court}<br />{/*Lien de la card*/}</Popup>
+                </Marker> 
+
+
             }
         })
-        
+
 
     }
     return (
@@ -28,7 +39,7 @@ export default function Map(props) {
             <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            {fields}
+            {markerList}
 
         </MapContainer>)
 }

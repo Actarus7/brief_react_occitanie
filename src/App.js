@@ -9,7 +9,6 @@ function App() {
   const [dataEventM_2, setDataEventM_2] = useState([])
   const [dataEvent, setDataEvent] = useState([])
 
-
   useEffect(() => {
     async function fetchDataM_1() {
       const date_1 = filtreDefaultM_1()
@@ -65,6 +64,7 @@ function App() {
   console.log(dataEventM_1);
   console.log(dataEventM_2);
   console.log(dataEvent);
+
 
     return (
         <div className="App">
