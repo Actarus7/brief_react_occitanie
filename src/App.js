@@ -15,7 +15,7 @@ function App() {
       return data;
     }))
       .then((results) => {
-        const newResults = results.flat()/* results[0].concat(results[1] )*/ // Retourne une concaténation des arrays
+        const newResults = results.flat().filter(elm => elm)/* results[0].concat(results[1] )*/ // Retourne une concaténation des arrays
         setDataEvent(newResults)
       })
   }, [])

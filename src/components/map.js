@@ -4,22 +4,20 @@ import { } from '../App.css'
 export default function Map(props) {
     //console.log(props.data);
 
-    let fields = [];
+    let markerList = [];
 
     if (props.data.length) {
-        fields = props.data?.map((elem, i) => {
-            if (elem.fields && elem.fields.geo_point) {
-                return <><Marker key={elem.recordid} position={elem.fields?.geo_point}>
-                <Popup key={"msg_" + elem.recordid}>{elem.fields?.categorie_de_la_manifestation} <br/>
-                {elem.fields?.nom_de_la_manifestation}<br/>
-                {elem.fields?.dates_affichage_horaires}<br/><br/>
-                {elem.fields?.descriptif_court}<br/>{/*Lien de la card*/}</Popup> 
-                </Marker> </>
-                
-                            
-            }
+        markerList = props.data?.filter(elm => elm.fields.geo_point !== undefined).map((elem, i) => {
+            return <Marker key={elem.recordid} position={elem.fields?.geo_point}>
+                <Popup key={"msg_" + elem.recordid}>{elem.fields?.categorie_de_la_manifestation} <br />
+                    {elem.fields?.nom_de_la_manifestation}<br />
+                    {elem.fields?.dates_affichage_horaires}<br /><br />
+                    {elem.fields?.descriptif_court}<br />{/*Lien de la card*/}
+                </Popup>
+            </Marker>
         })
-        
+        console.log(markerList);
+
 
     }
     return (
@@ -28,7 +26,7 @@ export default function Map(props) {
             <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            {fields}
+            {markerList}
 
         </MapContainer>)
 }
