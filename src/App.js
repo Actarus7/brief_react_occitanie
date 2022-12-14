@@ -50,20 +50,6 @@ function App() {
   }
   console.log(dataEvent);
 
-    return (
-        <div className="App">
-            <header className="App-header">
-                <h1>Agenda Culturel Toulouse</h1>
-                <div className='container'>
-                  <div>
-                    <EventCourt data={dataEvent} />
-                  </div>
-                    <div id="map">
-                    <Map data={dataEvent}/>
-                    </div>
-                </div>
-            </header>
-
   return (
     <div className="App">
       <header className=" bg-red shadow">
@@ -71,15 +57,19 @@ function App() {
       </header>
 
       <main className='container '>
-
-
-        <div id="map">
-        {/*   <Map data={dataEvent}></Map> */}
+        <div className='container'>
+          <div>
+            <EventCourt data={dataEvent} />
+          </div>
+          
+          <div id="map">
+            <Map data={dataEvent} />
+          </div>
         </div>
-
+        
       </main>
-
     </div>
+
   );
 }
 
