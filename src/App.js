@@ -61,7 +61,7 @@ function App() {
 
 
         <div id="map">
-          <Map data={dataEvent}></Map>
+        {/*   <Map data={dataEvent}></Map> */}
         </div>
 
       </main>
