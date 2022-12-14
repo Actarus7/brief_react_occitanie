@@ -2,6 +2,7 @@
 import { } from './App.css'
 import Map from './components/map';
 import React, { useEffect, useState, } from "react";
+import { Accueil } from './components/navbar';
 
 function App() {
   const [dataEventM_1, setDataEventM_1] = useState([])
@@ -66,16 +67,21 @@ function App() {
 
   return (
     <div className="App">
-        <header className="App-header">
-            <h1>Agenda Culturel Toulouse</h1>
-            <div className='container'>
-                <div id="map">
-                    <Map ></Map>
-                </div>
-            </div>
-        </header>
+      <header className=" bg-red shadow">
+        <Accueil ></Accueil>
+      </header>
+
+      <main className='container '>
+
+
+        <div id="map">
+          <Map ></Map>
+        </div>
+
+      </main>
+
     </div>
-);
+  );
 }
 
 export default App;
