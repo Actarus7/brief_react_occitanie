@@ -8,10 +8,6 @@ function App() {
     let urls = []
     urls.push(filtreDefaultM_1())
     urls.push(filtreDefault_2())
-    /* let urls = [
-        `https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=agenda-des-manifestations-culturelles-so-toulouse&q=&rows=300&facet=date_debut&facet=date_fin&facet=categorie_de_la_manifestation&facet=theme_de_la_manifestation&refine.date_fin=2023%2F1`,
-        `https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=agenda-des-manifestations-culturelles-so-toulouse&q=&rows=300&facet=date_debut&facet=date_fin&facet=categorie_de_la_manifestation&facet=theme_de_la_manifestation&refine.date_fin=2023%2F2`
-      ] */
     Promise.all(urls.map(async (url) => {
       const response = await fetch(url);
       const responseJson = await response.json();
@@ -19,7 +15,7 @@ function App() {
       return data;
     }))
       .then((results) => {
-        const newResults = results[0].concat(results[1])
+        const newResults = results.flat()/* results[0].concat(results[1] )*/ // Retourne une concaténation des arrays
         setDataEvent(newResults)
       })
   }, [])
@@ -52,18 +48,19 @@ function App() {
     return url
   }
   console.log(dataEvent);
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Agenda Culturel Toulouse</h1>
-        <div className='container'>
-          <div id="map">
-            <Map ></Map>
-          </div>
+
+    return (
+        <div className="App">
+            <header className="App-header">
+                <h1>Agenda Culturel Toulouse</h1>
+                <div className='container'>
+                    <div id="map">
+                    <Map data={dataEvent}/>
+                    </div>
+                </div>
+            </header>
         </div>
-      </header>
-    </div>
-  );
+    );
 }
 
 export default App;
