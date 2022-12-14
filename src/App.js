@@ -1,6 +1,7 @@
 import { } from './App.css'
 import Map from './components/map';
 import React, { useEffect, useState, } from "react";
+import EventCourt from './components/eventCourt';
 
 function App() {
   const [dataEvent, setDataEvent] = useState([])
@@ -54,6 +55,9 @@ function App() {
             <header className="App-header">
                 <h1>Agenda Culturel Toulouse</h1>
                 <div className='container'>
+                  <div>
+                    <EventCourt data={dataEvent} />
+                  </div>
                     <div id="map">
                     <Map data={dataEvent}/>
                     </div>
