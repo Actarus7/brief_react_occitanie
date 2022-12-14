@@ -1,7 +1,7 @@
 import { } from './App.css'
 import Map from './components/map';
 import React, { useEffect, useState, } from "react";
-import EventCourt from './components/eventCourt';
+import { Navbar } from './components/navbar';
 
 function App() {
   const [dataEvent, setDataEvent] = useState([])
@@ -63,8 +63,24 @@ function App() {
                     </div>
                 </div>
             </header>
+
+  return (
+    <div className="App">
+      <header className=" bg-red shadow">
+        <Navbar ></Navbar>
+      </header>
+
+      <main className='container '>
+
+
+        <div id="map">
+        {/*   <Map data={dataEvent}></Map> */}
         </div>
-    );
+
+      </main>
+
+    </div>
+  );
 }
 
 export default App;
