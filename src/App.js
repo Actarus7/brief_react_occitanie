@@ -50,7 +50,7 @@ function App() {
     //console.log(date);
     return url
   }
-  console.log(dataEvent);
+  //console.log(dataEvent);
 
   return (
     <div className="App">

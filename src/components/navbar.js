@@ -1,26 +1,26 @@
 export function Navbar() {
     return (
 
-        <nav class="navbar navbar-expand-lg bg-red">
-            <div class="container-fluid  ">
+        <nav className="navbar navbar-expand-lg bg-red">
+            <div className="container-fluid  ">
 
                 <img src="/icone1.jpg" alt="icon" width="80" height="70" className="mx-5 ms-0" />
 
-                <a class="navbar-brand text-white" >Agenda culturel en Occitanie</a>
+                <a className="navbar-brand text-white" >Agenda culturel en Occitanie</a>
 
 
-                <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
 
 
-                <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active txt-yl" aria-current="page" href="#">Accueil</a>
+                <div className="collapse navbar-collapse flex-row-reverse" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <a className="nav-link active txt-yl" aria-current="page" href="#">Accueil</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link txt-yl" href="#">A Propos</a>
+                        <li className="nav-item">
+                            <a className="nav-link txt-yl" href="#">A Propos</a>
                         </li>
                     </ul>
                 </div>

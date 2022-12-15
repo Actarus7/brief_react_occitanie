@@ -16,7 +16,7 @@ export default function Map(props) {
                 </Popup>
             </Marker>
         })
-        console.log(markerList);
+        //console.log(markerList);
 
 
     }
