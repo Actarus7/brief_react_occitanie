@@ -1,4 +1,4 @@
-export function Navbar() {
+export function Navbar(props) {
     return (
 
         <nav className="navbar navbar-expand-lg bg-red">
@@ -14,25 +14,19 @@ export function Navbar() {
                 </button>
 
 
-                <div className="collapse navbar-collapse flex-row-reverse" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <a className="nav-link active txt-yl" aria-current="page" href="#">Accueil</a>
+                <div class="collapse navbar-collapse flex-row-reverse no-wrap" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active txt-yl" aria-current="page" href="#" onClick={() => props.setPage('accueil')}>Accueil</a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link txt-yl" href="#">A Propos</a>
+                        <li class="nav-item">
+                            <a class="nav-link txt-yl" href="#" onClick={() => props.setPage('a propos')}>A Propos</a>
                         </li>
                     </ul>
                 </div>
             </div>
 
         </nav>
-
-
-
-
-
-
 
     )
 }
