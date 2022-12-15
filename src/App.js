@@ -1,7 +1,9 @@
-import { } from "./App.css";
-import Map from "./components/map";
-import React, { useEffect, useState } from "react";
-import EventLong from "./components/eventLong";
+import { } from './App.css'
+import Map from './components/map';
+import React, { useEffect, useState, } from "react";
+import { Navbar } from './components/navbar';
+import EventCourt from './components/eventCourt';
+import UserSearch from './components/userSearch';
 
 function App() {
     const [dataEvent, setDataEvent] = useState([]);
@@ -57,16 +59,31 @@ function App() {
 
     return (
         <div className="App">
-            <header className="App-header">
-                <h1>Agenda Culturel Toulouse</h1>
-                <div className="container">
-                    <div id="map">
-                        <Map data={dataEvent} />
-                    </div>
-                </div>
-            </header>
+      <header className=" bg-red shadow">
+        <Navbar ></Navbar>
+      </header>
+
+      <main className='container '>
+        
+        <div className='container'>
+
+          <div id="search">
+            <UserSearch />
+          </div>
+
+          <div id="results">
+            <EventCourt data={dataEvent} />
+          </div>
+          
+          <div id="map">
+            <Map  data={dataEvent} />
+          </div>
         </div>
-    );
+
+      </main>
+    </div>
+
+  );
 }
 
 export default App;

@@ -30,8 +30,8 @@ export default function Map(props) {
         console.log(markerList);
     }
     return (
-        <MapContainer
-            style={{ width: "60vh", height: "60vh" }}
+        <MapContainer className='map border border-3 border-danger rounded-4 mb-4'
+            /* style={{ width: "60vh", height: "60vh" }} */
             center={[43.60306511042458, 1.4367906616822803]}
             zoom={12}
             scrollWheelZoom={false}
