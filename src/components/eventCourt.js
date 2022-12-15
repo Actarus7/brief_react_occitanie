@@ -1,32 +1,22 @@
+import { useState } from "react"
+
 export default function EventCourt(props) {
+    console.log(props.data);
+    let indexElem = 8
+    const [indexPage, setN] = useState(1)
 
-    const newData = props.data.filter((elem, index) => index < 4).map((elm, i) => {
-        return <div className="card" style={{ width: 18 + 'rem' }}>
+    let cardEvent = props.data.filter((elem, index) => index < indexPage * indexElem).map((elm, i) => {
+        return <div className="card" style={{ width: 18 + 'rem' }} key={i} onclick={() => props.setPage("details")}>
             <img src="..." className="card-img-top" alt="..." />
 
             <div className="card-body">
-                <h6 className="card-title">Théâtre</h6>
-                <h5 className="card-title">Château de Biron</h5>
-                <p className="card-text">Venez visiter notre somptueux château mes ptits DEV</p>
+                <h6 className="card-title">{props.data[i].fields.categorie_de_la_manifestation}</h6>
+                <h5 className="card-title">{props.data[i].fields.nom_de_la_manifestation}</h5>
+                <p className="card-text">{props.data[i].fields.descriptif_court}</p>
                 {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
             </div>
         </div>
     })
-
-    const newData2 = props.data.filter((elem, index) => (index > 3 && index < 8)).map((elm, i) => {
-        return <div className="card" style={{ width: 18 + 'rem' }}>
-            <img src="..." className="card-img-top" alt="..." />
-
-            <div className="card-body">
-                <h6 className="card-title">Cinéma</h6>
-                <h5 className="card-title">Avatar 2</h5>
-                <p className="card-text">Venez visiter notre somptueux château mes ptits DEV</p>
-                {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
-            </div>
-        </div>
-    })
-    console.log(newData);
-
 
     // affichage
     return (
@@ -34,11 +24,25 @@ export default function EventCourt(props) {
             <h2>Résultats</h2>
             <div className="container">
                 <div className="container d-flex flex-row mb-5">
-                    {newData}
+                    {cardEvent}
                 </div>
-                <div className="container d-flex flex-row mb-5">
-                    {newData2}
-                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">{indexPage}</a></li>
+                        <li class="page-item"><a class="page-link" href="#">{indexPage + 1}</a></li>
+                        <li class="page-item"><a class="page-link" href="#">{indexPage + 2}</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     )
