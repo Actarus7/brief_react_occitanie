@@ -4,7 +4,7 @@ export function Navbar(props) {
         <nav className="navbar navbar-expand-lg bg-red">
             <div className="container-fluid  ">
 
-                <img src="/icone1.jpg" alt="icon" width="80" height="70" className="mx-5 ms-0" />
+                <img src="/icone1.jpg" alt="icon" width="100" height="70" className="mx-5 ms-0 logo" onClick={() => props.setPage('accueil')}/>
 
                 <a className="navbar-brand text-white" >Agenda culturel</a>
 

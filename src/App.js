@@ -3,6 +3,7 @@ import React, { useEffect, useState, } from "react";
 import { Navbar } from './components/navbar';
 import Apropos from './components/aPropos';
 import Accueil from './accueil';
+import EventLong from './components/eventLong';
 
 function App() {
     const [dataEvent, setDataEvent] = useState([]);
@@ -68,6 +69,7 @@ function App() {
 
                 {page === 'accueil' && <Accueil data={dataEvent}></Accueil>}
                 {page === 'a propos' && <Apropos></Apropos>}
+                {page === 'details' && <EventLong></EventLong>}
 
             </main>
         </div>

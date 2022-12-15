@@ -9,3 +9,21 @@
 .map {
     height: 400px;
 }
+
+.form-control:focus {
+    color: #212529 !important;
+    background-color: #fff !important;
+    border-color: #EFB00D !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(239, 176, 13, 0.25) !important;
+}
+
+.form-select:focus {
+    border-color: #EFB00D !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+
+.logo{
+    cursor: pointer;
+}
