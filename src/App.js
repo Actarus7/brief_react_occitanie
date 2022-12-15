@@ -2,6 +2,8 @@ import { } from './App.css'
 import Map from './components/map';
 import React, { useEffect, useState, } from "react";
 import { Navbar } from './components/navbar';
+import EventCourt from './components/eventCourt';
+import UserSearch from './components/userSearch';
 
 function App() {
   const [dataEvent, setDataEvent] = useState([])
@@ -50,7 +52,6 @@ function App() {
   }
   console.log(dataEvent);
 
-
   return (
     <div className="App">
       <header className=" bg-red shadow">
@@ -58,15 +59,25 @@ function App() {
       </header>
 
       <main className='container '>
+        
+        <div className='container'>
 
+          <div id="search">
+            <UserSearch />
+          </div>
 
-        <div id="map">
-        {/*   <Map data={dataEvent}></Map> */}
+          <div id="results">
+            <EventCourt data={dataEvent} />
+          </div>
+          
+          <div id="map">
+            <Map data={dataEvent} />
+          </div>
         </div>
 
       </main>
-
     </div>
+
   );
 }
 
