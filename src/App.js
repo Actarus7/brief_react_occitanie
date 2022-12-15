@@ -59,21 +59,30 @@ function App() {
       </header>
 
       <main className='container '>
-        
+
         <div className='container'>
 
           <div id="search">
             <UserSearch />
           </div>
 
+
+
+
           <div id="results">
             <EventCourt data={dataEvent} />
           </div>
-          
+
+
+
+
           <div id="map">
             <Map data={dataEvent} />
           </div>
         </div>
+
+
+
 
       </main>
     </div>

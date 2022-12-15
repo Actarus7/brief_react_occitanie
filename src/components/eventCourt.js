@@ -1,7 +1,7 @@
 export default function EventCourt(props) {
 
     const newData = props.data.filter((elem, index) => index < 4).map((elm, i) => {
-        return <div className="card" style={{width: 18 + 'rem'}}>
+        return <div className="card" style={{ width: 18 + 'rem' }}>
             <img src="..." className="card-img-top" alt="..." />
 
             <div className="card-body">
@@ -13,8 +13,8 @@ export default function EventCourt(props) {
         </div>
     })
 
-    const newData2 = props.data.filter((elem, index) => (index>3 && index<8)).map((elm, i) => {
-        return <div className="card" style={{width: 18 + 'rem'}}>
+    const newData2 = props.data.filter((elem, index) => (index > 3 && index < 8)).map((elm, i) => {
+        return <div className="card" style={{ width: 18 + 'rem' }}>
             <img src="..." className="card-img-top" alt="..." />
 
             <div className="card-body">
