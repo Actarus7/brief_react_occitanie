@@ -3,10 +3,9 @@
 }
 
 .txt-yl{
-    color: #EFB00D;
+    color: #EFB00D !important;
 }
 
 .map {
     height: 400px;
 }
-
