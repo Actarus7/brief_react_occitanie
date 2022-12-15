@@ -1,4 +1,4 @@
-export function Navbar() {
+export function Navbar(props) {
     return (
 
         <nav class="navbar navbar-expand-lg bg-red">
@@ -17,10 +17,10 @@ export function Navbar() {
                 <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active txt-yl" aria-current="page" href="#">Accueil</a>
+                            <a class="nav-link active txt-yl" aria-current="page" href="#" onClick={() => props.setPage('accueil')}>Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link txt-yl" href="#">A Propos</a>
+                            <a class="nav-link txt-yl" href="#" onClick={() => props.setPage('a propos')}>A Propos</a>
                         </li>
                     </ul>
                 </div>
