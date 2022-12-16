@@ -7,91 +7,96 @@ import EventLong from './components/eventLong';
 import UserSearch from './components/userSearch';
 
 function App() {
-  const [dataEvent, setDataEvent] = useState([]);
-  const [page, setPage] = useState('accueil')
-  let typeEvent = []
-  useEffect(() => {
-    let urls = [];
-    urls.push(filtreDefaultM_1());
-    urls.push(filtreDefault_2());
-    Promise.all(
-      urls.map(async (url) => {
-        const response = await fetch(url);
-        const responseJson = await response.json();
-        const data = responseJson.records;
-        return data;
-      })
-    ).then((results) => {
-      const newResults = results
-        .flat()
-        .filter((elm) => elm); /* results[0].concat(results[1] )*/ // Retourne une concaténation des arrays
-      setDataEvent(newResults);
-    });
-  }, []);
 
-  function filtreDefaultM_1() {
-    const dateNow = new Date();
-    //console.log(dateNow);
-    //console.log(dateNow.getMonth())
-    const annee = dateNow.getFullYear();
-    const mois = dateNow.getMonth() + 1;
-    const date = { year: annee, month: mois };
-    const url = `https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=agenda-des-manifestations-culturelles-so-toulouse&q=&rows=300&facet=date_debut&facet=date_fin&facet=categorie_de_la_manifestation&facet=theme_de_la_manifestation&refine.date_fin=${date.year}%2F${date.month}`;
-    //console.log(date);
-    return url;
-  }
+    const [dataEvent, setDataEvent] = useState([]);
+    const [page, setPage] = useState('accueil')
+    const [dataSingleEvent, setDataSingleEvent] = useState(undefined)
 
-  function filtreDefault_2() {
-    const dateNow = new Date();
-    let annee;
-    let mois;
-    if (dateNow.getMonth() === 11) {
-      annee = dateNow.getFullYear() + 1;
-      mois = 1;
-    } else {
-      annee = dateNow.getFullYear();
-      mois = dateNow.getMonth() + 2;
+    let typeEvent = []
+    useEffect(() => {
+        let urls = [];
+        urls.push(filtreDefaultM_1());
+        urls.push(filtreDefault_2());
+        Promise.all(
+            urls.map(async (url) => {
+                const response = await fetch(url);
+                const responseJson = await response.json();
+                const data = responseJson.records;
+                return data;
+            })
+        ).then((results) => {
+            const newResults = results
+                .flat()
+                .filter((elm) => elm); /* results[0].concat(results[1] )*/ // Retourne une concaténation des arrays
+            setDataEvent(newResults);
+        });
+    }, []);
+
+    function filtreDefaultM_1() {
+        const dateNow = new Date();
+        //console.log(dateNow);
+        //console.log(dateNow.getMonth())
+        const annee = dateNow.getFullYear();
+        const mois = dateNow.getMonth() + 1;
+        const date = { year: annee, month: mois };
+        const url = `https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=agenda-des-manifestations-culturelles-so-toulouse&q=&rows=300&facet=date_debut&facet=date_fin&facet=categorie_de_la_manifestation&facet=theme_de_la_manifestation&refine.date_fin=${date.year}%2F${date.month}`;
+        //console.log(date);
+        return url;
     }
-    const date = { year: annee, month: mois };
-    const url = `https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=agenda-des-manifestations-culturelles-so-toulouse&q=&rows=300&facet=date_debut&facet=date_fin&facet=categorie_de_la_manifestation&facet=theme_de_la_manifestation&refine.date_fin=${date.year}%2F${date.month}`;
-    //console.log(date);
-    return url;
-  }
 
-  const handleGetTypes = () => {
-    const dataEventCopy = [...dataEvent]
-    const newDataEventCopy = [...new Set(dataEventCopy.map((elm) => elm.fields.type_de_manifestation))]
-    //console.log(newDataEventCopy);
-    return newDataEventCopy
-    //return typeEvent
-  }
+    function filtreDefault_2() {
+        const dateNow = new Date();
+        let annee;
+        let mois;
+        if (dateNow.getMonth() === 11) {
+            annee = dateNow.getFullYear() + 1;
+            mois = 1;
+        } else {
+            annee = dateNow.getFullYear();
+            mois = dateNow.getMonth() + 2;
+        }
+        const date = { year: annee, month: mois };
+        const url = `https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=agenda-des-manifestations-culturelles-so-toulouse&q=&rows=300&facet=date_debut&facet=date_fin&facet=categorie_de_la_manifestation&facet=theme_de_la_manifestation&refine.date_fin=${date.year}%2F${date.month}`;
+        //console.log(date);
+        return url;
+    }
 
-let dataLong; 
+    const handleGetTypes = () => {
+        const dataEventCopy = [...dataEvent]
+        const newDataEventCopy = [...new Set(dataEventCopy.map((elm) => elm.fields.type_de_manifestation))]
+        //console.log(newDataEventCopy);
+        return newDataEventCopy
+        //return typeEvent
+    }
 
-  const handleEventLong = (dataClick) => {
-  
-    console.log(dataClick);
-    return dataLong
+
+
+  const handleEventLong = (data) => {
+    console.log(data);
+    setDataSingleEvent(data);
+    setPage('details');   
 }
 
-  //console.log(dataEvent);
-  return (
-    <div className="App">
 
-      <header className=" bg-red shadow">
-        <Navbar setPage={setPage}></Navbar>
-      </header>
+    //console.log(dataEvent);
+    return (
+        <div className="App">
 
-      <main className='container '>
+            <header className=" bg-red shadow">
+                <Navbar setPage={setPage}></Navbar>
+            </header>
+
+            <main className='container p-3'>
 
                 {page === 'accueil' && <Accueil data={dataEvent} setPage={setPage} handleEventLong={handleEventLong}></Accueil>}
                 {page === 'a propos' && <Apropos></Apropos>}
-                {page === 'details' && <><UserSearch></UserSearch><EventLong data={handleEventLong()} ></EventLong ></>}
+                {page === 'details' && <><UserSearch></UserSearch><EventLong data={dataSingleEvent} ></EventLong ></>}
+                
 
-      </main>
-    </div>
+            </main>
+        </div>
 
-  );
+    );
 }
 
 export default App;

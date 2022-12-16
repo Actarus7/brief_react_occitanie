@@ -4,15 +4,14 @@ import UserSearch from "./components/userSearch"
 
 export default function Accueil(props) {
 
-    return (<div className='container'>
-    <div id="search">
+    return (<>
         <UserSearch />
-    </div>
-    <div id="results">
-        <EventCourt data={props.data} handleGetTypes={props.handleGetTypes} setPage={props.setPage} handleEventLong={props.handleEventLong}/>
-    </div>
-    <div id="map">
-        <Map data={props.data} />
-    </div>
-</div>)
+        <div id="results">
+            <EventCourt data={props.data} handleGetTypes={props.handleGetTypes} setPage={props.setPage} handleEventLong={props.handleEventLong} />
+        </div>
+        <div id="map">
+            <Map data={props.data} />
+        </div>
+    </>
+    )
 }

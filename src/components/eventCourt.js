@@ -7,11 +7,11 @@ export default function EventCourt(props) {
     let indexElem = 8
     const [indexPage, setN] = useState(1)
     let cardEvent = props.data.filter((elem, index) => index >= 0 && index < indexPage * indexElem).map((elm, i) => {
-        return <div className="card d-flex m-1 p-1 flex-fill border border-danger border-2 rounded-5" style={{ width: 18 + 'rem' }} key={i} onClick={() => { props.setPage("details"); props.handleEventLong(elm.fields) }}>
+        return <div className="card d-flex m-1 p-1 flex-fill border border-danger border-2 rounded-5" style={{ width: 18 + 'rem' }} key={i} onClick={() =>  props.handleEventLong(elm.fields)}>
             <img src={`/img/${getImageType(elm.fields.type_de_manifestation)}.jpg`} className="card-img-top rounded-5" alt="..." />
 
-            <div className="card-body">
-                <h6 className="card-title text-center">{elm.fields.type_de_manifestation}</h6>
+            <div className="card-body">            
+                <h6 className="card-title text-center">{elm.fields.type_de_manifestation}</h6><br/>
                 <h5 className="card-title text-left">{elm.fields.nom_de_la_manifestation}</h5>
                 <p className="card-text text-left text-justify">{elm.fields.descriptif_court}</p>
             </div>
@@ -35,34 +35,34 @@ export default function EventCourt(props) {
 
     // affichage
     return (
-        <div>
-            <div className='row g-2 border border-danger border-3 rounded-4 p-2 mb-4 mt-4'>
-                <h5>Résultats :</h5>
-                {cardEvent}
-                <nav aria-label="Page navigation">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item">
-                            <a class="page-link bg-warning text-dark" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&lt;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link page-link bg-warning text-dark" href="#">{indexPage}</a></li>
-                        <li class="page-item"><a class="page-link page-link bg-warning text-dark" href="#">{indexPage + 1}</a></li>
-                        <li class="page-item"><a class="page-link page-link bg-warning text-dark" href="#">{indexPage + 2}</a></li>
-                        <li class="page-item">
-                            <a class="page-link bg-warning text-dark" href="#" aria-label="Next">
-                                <span aria-hidden="true">&gt;</span>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link bg-warning text-dark" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+
+        <div className='row border border-danger border-3 rounded-4 p-2 mb-4 mt-4'>
+            <h5>Résultats :</h5>
+            {cardEvent}
+            <nav aria-label="Page navigation">
+                <ul className="pagination justify-content-center mt-4">
+                    <li className="page-item">
+                        <a className="page-link bg-warning text-dark" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&lt;</span>
+                        </a>
+                    </li>
+                    <li className="page-item"><a className="page-link page-link bg-warning text-dark" href="#">{indexPage}</a></li>
+                    <li className="page-item"><a className="page-link page-link bg-warning text-dark" href="#">{indexPage + 1}</a></li>
+                    <li className="page-item"><a className="page-link page-link bg-warning text-dark" href="#">{indexPage + 2}</a></li>
+                    <li className="page-item">
+                        <a className="page-link bg-warning text-dark" href="#" aria-label="Next">
+                            <span aria-hidden="true">&gt;</span>
+                        </a>
+                    </li>
+                    <li className="page-item">
+                        <a className="page-link bg-warning text-dark" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
+
 
     )
 }

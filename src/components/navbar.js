@@ -2,16 +2,18 @@ export function Navbar(props) {
     return (
 
         <nav className="navbar navbar-expand-lg bg-red">
+
             <div className="container-fluid  ">
 
                 <img src="/icone1.jpg" alt="icon" width="100" height="70" className="mx-5 ms-0 logo" onClick={() => props.setPage('accueil')}/>
 
-                <a className="navbar-brand text-white" >Agenda culturel</a>
+                <span className="navbar-brand text-white" >Agenda culturel</span>
 
 
-                <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+
+                    <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
 
 
                 <div className="collapse navbar-collapse flex-row-reverse no-wrap" id="navbarNav">

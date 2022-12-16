@@ -1,46 +1,48 @@
 import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
 import EventCourt from "./eventCourt";
 
-export default function EventLong(props) {
+export default function EventLong({data}) {
 
-    //console.log(props.data);
 
-    return /* (<><div>
+    return (<><div>
         <div>
-            {<img src="{props.imgCatEvent}" alt="{props.data.type_de_manifestation}" />}
-            <h1>{props.data.fields.type_de_manifestation}</h1>
-            <h2>{props.data.fields.nom_de_la_manifestation}</h2>
+            {/* {<img src="{imgCatEvent}" alt="{data.type_de_manifestation}" />} */}
+            <h1>{data.type_de_manifestation}</h1>
+            <h2>{data.nom_de_la_manifestation}</h2>
         </div>
         <div>
-            <p>Horaires: {props.data.fields.dates_affichage_horaires}</p>
+            <p>Horaires: {data.dates_affichage_horaires}</p>
             <br />
-            <p>Adresse: {props.data.fields.lieu_adresse_1}
+            <p>Adresse: {data.lieu_adresse_1}
                 <br />
-                {props.data.fields.lieu_adresse_2}</p>
+                {data.lieu_adresse_2}</p>
             <br />
-            <p>Tarifs : {props.data.fields.tarif_normal}</p>
+            <p>Tarifs : {data.tarif_normal}</p>
         </div>
         <div>
-            <p>Reservation e-mail: {props.data.fields.reservation_email}</p>
-            <p>Reservation via le site: {props.data.fields.reservation_site_internet}</p>
-            <p>Reservation par téléphone: {props.data.fields.reservation_telephone}</p>
+            <p>Reservation e-mail: {data.reservation_email}</p>
+            <p>Reservation via le site: {data.reservation_site_internet}</p>
+            <p>Reservation par téléphone: {data.reservation_telephone}</p>
             <br />
-            <p>Accès: {props.data.fields.station_metro_tram_a_proximite}</p>
+            <p>Accès: {data.station_metro_tram_a_proximite}</p>
         </div>
         <div>
-            <p> {props.data.fields.descriptif_long}</p>
+            <p> {data.descriptif_long}</p>
         </div>
     </div><div>
-            <MapContainer style={{ width: '60vh', height: '60vh' }} center={[43.60306511042458, 1.4367906616822803]} zoom={13} scrollWheelZoom={false}>
+            <MapContainer className='map row border border-3 border-danger rounded-4 mb-4' center={data.geo_point} zoom={16} scrollWheelZoom={false}>
 
                 <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                <Marker position={[43.570032188000845, 1.4021166257656503]}>
+                <Marker position={data.geo_point}>
                     <Popup>
-                        Venez observer la dignité de Stephane !
+                    {data.nom_de_la_manifestation}<br/>
+                    {data.lieu_adresse_1}<br/>
+                    {data.lieu_adresse_2}
+
                     </Popup>
                 </Marker>
             </MapContainer></div></>
-    ) */
+    )
 }
         
