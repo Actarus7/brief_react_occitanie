@@ -1,8 +1,8 @@
-.bg-red{
-    background-color:#C80103 ;
+.bg-red {
+    background-color: #C80103;
 }
 
-.txt-yl{
+.txt-yl {
     color: #EFB00D !important;
 }
 
@@ -24,6 +24,27 @@
     box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
 }
 
+<<<<<<< HEAD
 .logo{
     cursor: pointer;
+=======
+.form-control {
+    border: 1px solid #EFB00D !important;
+}
+
+.bt-rsc {
+    background-color: #EFB00D !important;
+}
+
+@media (min-width: 767.98px) {
+    .bt-rsc {
+        background-color: #EFB00D !important;
+        height: 7em !important;
+        width: 7em !important;
+    }
+}
+
+.bold {
+    font-weight: 700 !important;
+>>>>>>> 50c7d912b316b94bf0949150c43eed73b88046e8
 }
