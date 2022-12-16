@@ -61,16 +61,14 @@ function App() {
         return url;
     }
 
-    const handleGetTypes = () => {
-        const dataEventCopy = [...dataEvent]
-        const newDataEventCopy = [...new Set(dataEventCopy.map((elm) => elm.fields.type_de_manifestation))]
-        //console.log(newDataEventCopy);
-        return newDataEventCopy
-        //return typeEvent
-    }
-
-
-
+  const handleGetTypes = () => {
+    const dataEventCopy = [...dataEvent]
+    const newDataEventCopy = [...new Set(dataEventCopy.map((elm) => elm.fields.type_de_manifestation))]
+    //console.log(newDataEventCopy);
+    return newDataEventCopy
+    //return typeEvent
+  }
+  
   const handleEventLong = (data) => {
     console.log(data);
     setDataSingleEvent(data);
