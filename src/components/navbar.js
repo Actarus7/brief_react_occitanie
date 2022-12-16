@@ -6,7 +6,7 @@ export function Navbar(props) {
 
                 <img src="/icone1.jpg" alt="icon" width="80" height="70" className="mx-5 ms-0" />
 
-                <a className="navbar-brand text-white" >Agenda culturel en Occitanie</a>
+                <a className="navbar-brand text-white" >Agenda culturel</a>
 
 
                 <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
