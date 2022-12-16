@@ -6,11 +6,11 @@ import UserSearch from "./components/userSearch"
 
 export default function Accueil(props) {
 
-    return (<>
-
+    return (
+    <>
         <UserSearch />
-        <EventCourt data={props.data} />
+        <EventCourt data={props.data} handleGetTypes={props.handleGetTypes}/> 
         <Map data={props.data} />
-
-    </>)
+    </>
+    )
 }
