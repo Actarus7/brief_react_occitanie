@@ -89,3 +89,7 @@
     border-color: #EFB00D !important;
     outline: 0;
 }
+
+.large {
+    width: auto;
+}
