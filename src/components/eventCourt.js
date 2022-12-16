@@ -22,7 +22,7 @@ export default function EventCourt(props) {
     // affichage
     return (
         <div>
-            <div className="container">
+            <div className="container m-4">
 
                 <h5>Résultats :</h5>
 
