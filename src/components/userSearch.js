@@ -6,7 +6,7 @@ export default function UserSearch() {
             <div className="col-md-10 col-12 mt-3 ">
 
                 <div className=" form-floating mb-3 flex-nowrap shadow-sm">
-                    <input type="text" class="form-control" placeholder="Cherchez un evenement" aria-label="search" />
+                    <input type="text" className="form-control" placeholder="Cherchez un evenement" aria-label="search" />
                     <label for="floatingInput">Cherchez un evenement</label>
                 </div>
 
@@ -44,7 +44,7 @@ export default function UserSearch() {
 
                 <div className="d-grid gap-2">
                     <button className="btn bt-rsc shadow mb-2 mb-md-0 bold " type="submit">Rechercher
-                        <i className="bi bi-search"></i>
+                        <i className="bi bi-search ms-2"></i>
                     </button>
                 </div>
             </div>

@@ -43,3 +43,17 @@
 .bold {
     font-weight: 700 !important;
 }
+
+.card:nth-child(odd){
+    cursor: pointer;    
+}
+
+.card:nth-child(even){
+    cursor: pointer;    
+}
+
+.card:hover {
+    background-color: #EFB00D !important;
+    border-color: #EFB00D !important;
+    outline: 0;
+}

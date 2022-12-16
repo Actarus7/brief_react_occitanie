@@ -5,8 +5,9 @@ export function Navbar(props) {
 
             <div className="container-fluid  ">
 
-                <img src="/icone1.jpg" alt="icon" width="120" height="70" className="mx-5 ms-0" />
-                        <h1 className="navbar-brand text-white pl-10" >Agenda culturel</h1>
+                <img src="/icone1.jpg" alt="icon" width="110" height="70" className="mx-5 ms-0" />
+
+                <span className="navbar-brand text-white" >Agenda culturel</span>
 
 
 

@@ -7,7 +7,7 @@ import Accueil from './accueil';
 function App() {
     const [dataEvent, setDataEvent] = useState([]);
     const [page, setPage] = useState('accueil')
-
+    let typeEvent = []
     useEffect(() => {
         let urls = [];
         urls.push(filtreDefaultM_1());
@@ -55,22 +55,31 @@ function App() {
         //console.log(date);
         return url;
     }
-    console.log(dataEvent);
 
+    const handleGetTypes = () => {
+        const dataEventCopy = [...dataEvent]
+        const newDataEventCopy = [...new Set(dataEventCopy.map((elm) => elm.fields.type_de_manifestation))]
+        //console.log(newDataEventCopy);
+        return newDataEventCopy
+        //return typeEvent
+    }
+
+    //console.log(dataEvent);
     return (
         <div className="App">
 
             <header className=" bg-red shadow">
-                <Navbar setPage= {setPage}></Navbar>
+                <Navbar setPage={setPage}></Navbar>
             </header>
 
-            <main className='container '>
+            <main className='container p-3'>
 
-                {page === 'accueil' && <Accueil data={dataEvent}></Accueil>}
+                {page === 'accueil' && <Accueil data={dataEvent} handleGetTypes={handleGetTypes()}></Accueil>}
                 {page === 'a propos' && <Apropos></Apropos>}
 
             </main>
         </div>
+
     );
 }
 
