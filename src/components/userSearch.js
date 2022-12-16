@@ -11,14 +11,11 @@ export default function UserSearch() {
                 </div>
 
                 <div className=" row d-flex flex-row mb-3 px-0s justify-content-between px-0 ">
+
                     <div className="col-12 col-md-4 mb-2">
-                        <select className="form-select shadow-sm " aria-label="Default select example">
-                            <option selected>Date</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
+                        <input type="date" class="form-control" id="date" />
                     </div>
+
 
                     <div className="col-12 col-md-4 mb-2">
                         <select className="form-select shadow-sm " aria-label="Default select example">
@@ -43,8 +40,8 @@ export default function UserSearch() {
             <div className="col-12 col-md-2 d-md-flex align-items-center justify-content-center">
 
                 <div className="d-grid gap-2">
-                    <button className="btn bt-rsc shadow mb-2 mb-md-0 bold " type="submit">Rechercher
-                        <i className="bi bi-search"></i>
+                    <button className="btn bt-rsc shadow mb-2 mb-md-0 bold zoom-bt " type="submit">Rechercher
+                        <i className="bi bi-search  ms-2 ms-md-0"></i>
                     </button>
                 </div>
             </div>

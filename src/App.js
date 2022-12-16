@@ -28,34 +28,34 @@ function App() {
     });
   }, []);
 
-  function filtreDefaultM_1() {
-    const dateNow = new Date();
-    //console.log(dateNow);
-    //console.log(dateNow.getMonth())
-    const annee = dateNow.getFullYear();
-    const mois = dateNow.getMonth() + 1;
-    const date = { year: annee, month: mois };
-    const url = `https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=agenda-des-manifestations-culturelles-so-toulouse&q=&rows=300&facet=date_debut&facet=date_fin&facet=categorie_de_la_manifestation&facet=theme_de_la_manifestation&refine.date_fin=${date.year}%2F${date.month}`;
-    //console.log(date);
-    return url;
-  }
-
-  function filtreDefault_2() {
-    const dateNow = new Date();
-    let annee;
-    let mois;
-    if (dateNow.getMonth() === 11) {
-      annee = dateNow.getFullYear() + 1;
-      mois = 1;
-    } else {
-      annee = dateNow.getFullYear();
-      mois = dateNow.getMonth() + 2;
+    function filtreDefaultM_1() {
+        const dateNow = new Date();
+        //console.log(dateNow);
+        //console.log(dateNow.getMonth())
+        const annee = dateNow.getFullYear();
+        const mois = dateNow.getMonth() + 1;
+        const date = { year: annee, month: mois };
+        const url = `https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=agenda-des-manifestations-culturelles-so-toulouse&q=&rows=300&facet=date_debut&facet=date_fin&facet=categorie_de_la_manifestation&facet=theme_de_la_manifestation&refine.date_fin=${date.year}%2F${date.month}`;
+        //console.log(date);
+        return url;
     }
-    const date = { year: annee, month: mois };
-    const url = `https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=agenda-des-manifestations-culturelles-so-toulouse&q=&rows=300&facet=date_debut&facet=date_fin&facet=categorie_de_la_manifestation&facet=theme_de_la_manifestation&refine.date_fin=${date.year}%2F${date.month}`;
-    //console.log(date);
-    return url;
-  }
+
+    function filtreDefault_2() {
+        const dateNow = new Date();
+        let annee;
+        let mois;
+        if (dateNow.getMonth() === 11) {
+            annee = dateNow.getFullYear() + 1;
+            mois = 1;
+        } else {
+            annee = dateNow.getFullYear();
+            mois = dateNow.getMonth() + 2;
+        }
+        const date = { year: annee, month: mois };
+        const url = `https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=agenda-des-manifestations-culturelles-so-toulouse&q=&rows=300&facet=date_debut&facet=date_fin&facet=categorie_de_la_manifestation&facet=theme_de_la_manifestation&refine.date_fin=${date.year}%2F${date.month}`;
+        //console.log(date);
+        return url;
+    }
 
   const handleGetTypes = () => {
     const dataEventCopy = [...dataEvent]
@@ -71,24 +71,24 @@ function App() {
     return a
 }
 
-  //console.log(dataEvent);
-  return (
-    <div className="App">
+    //console.log(dataEvent);
+    return (
+        <div className="App">
 
-      <header className=" bg-red shadow">
-        <Navbar setPage={setPage}></Navbar>
-      </header>
+            <header className=" bg-red shadow">
+                <Navbar setPage={setPage}></Navbar>
+            </header>
 
-      <main className='container '>
+            <main className='container p-3'>
 
         {page === 'accueil' && <Accueil data={dataEvent} handleGetTypes={handleGetTypes()} setPage={setPage} handleEventLong={handleEventLong}></Accueil>}
         {page === 'a propos' && <Apropos></Apropos>}
         {page === 'details' && <><UserSearch></UserSearch><EventLong data={handleEventLong()}></EventLong></>}
 
-      </main>
-    </div>
+            </main>
+        </div>
 
-  );
+    );
 }
 
 export default App;
