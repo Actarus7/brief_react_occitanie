@@ -4,9 +4,9 @@ export function Navbar(props) {
         <nav className="navbar navbar-expand-lg bg-red">
             <div className="container-fluid  ">
 
-                <img src="/icone1.jpg" alt="icon" width="80" height="70" className="mx-5 ms-0" />
+                <img src="/icone1.jpg" alt="icon" width="110" height="70" className="mx-5 ms-0" />
 
-                <a className="navbar-brand text-white" >Agenda culturel</a>
+                <span className="navbar-brand text-white" >Agenda culturel</span>
 
 
                 <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

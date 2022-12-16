@@ -64,7 +64,7 @@ function App() {
                 <Navbar setPage= {setPage}></Navbar>
             </header>
 
-            <main className='container '>
+            <main className='container p-3'>
 
                 {page === 'accueil' && <Accueil data={dataEvent}></Accueil>}
                 {page === 'a propos' && <Apropos></Apropos>}
