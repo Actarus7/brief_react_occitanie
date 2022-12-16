@@ -11,7 +11,7 @@ export default function Accueil(props) {
         <UserSearch />
     </div>
     <div id="results">
-        <EventCourt data={props.data} />
+        <EventCourt data={props.data} handleGetTypes={props.handleGetTypes}/>
     </div>
     <div id="map">
         <Map data={props.data} />

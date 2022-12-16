@@ -27,7 +27,7 @@ export default function Map(props) {
                     </Marker>
                 );
             });
-        console.log(markerList);
+        //console.log(markerList);
     }
     return (
         <MapContainer className='map border border-3 border-danger rounded-4 mb-4'
