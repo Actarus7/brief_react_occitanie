@@ -3,11 +3,12 @@ import React, { useEffect, useState, } from "react";
 import { Navbar } from './components/navbar';
 import Apropos from './components/aPropos';
 import Accueil from './accueil';
+import UserSearch from './components/userSearch';
+import EventLong from './components/eventLong';
 
 function App() {
   const [dataEvent, setDataEvent] = useState([]);
   const [page, setPage] = useState('accueil')
-  let typeEvent = []
   useEffect(() => {
     let urls = [];
     urls.push(filtreDefaultM_1());
@@ -63,6 +64,12 @@ function App() {
     return newDataEventCopy
     //return typeEvent
   }
+  
+  const handleEventLong = (a) => {
+    let data = []
+    console.log(a);
+    return a
+}
 
   //console.log(dataEvent);
   return (
@@ -74,8 +81,9 @@ function App() {
 
       <main className='container '>
 
-        {page === 'accueil' && <Accueil data={dataEvent} handleGetTypes={handleGetTypes()}></Accueil>}
+        {page === 'accueil' && <Accueil data={dataEvent} handleGetTypes={handleGetTypes()} setPage={setPage} handleEventLong={handleEventLong}></Accueil>}
         {page === 'a propos' && <Apropos></Apropos>}
+        {page === 'details' && <><UserSearch></UserSearch><EventLong data={handleEventLong()}></EventLong></>}
 
       </main>
     </div>

@@ -6,7 +6,7 @@ export default function UserSearch() {
             <div className="col-md-10 col-12 mt-3 ">
 
                 <div className=" form-floating mb-3 flex-nowrap shadow-sm">
-                    <input type="text" class="form-control" placeholder="Cherchez un evenement" aria-label="search" />
+                    <input type="text" className="form-control" placeholder="Cherchez un evenement" aria-label="search" />
                     <label for="floatingInput">Cherchez un evenement</label>
                 </div>
 
