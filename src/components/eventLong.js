@@ -1,8 +1,11 @@
 import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
+import EventCourt from "./eventCourt";
 
 export default function EventLong(props) {
 
-    return (<><div>
+    //console.log(props.data);
+
+    return /* (<><div>
         <div>
             {<img src="{props.imgCatEvent}" alt="{props.data.type_de_manifestation}" />}
             <h1>{props.data.fields.type_de_manifestation}</h1>
@@ -38,6 +41,6 @@ export default function EventLong(props) {
                     </Popup>
                 </Marker>
             </MapContainer></div></>
-    )
+    ) */
 }
         
