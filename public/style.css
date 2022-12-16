@@ -43,3 +43,7 @@
 .bold {
     font-weight: 700 !important;
 }
+
+.input-group-append {
+    cursor: pointer;
+}
