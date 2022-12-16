@@ -41,7 +41,7 @@ export default function UserSearch() {
 
                 <div className="d-grid gap-2">
                     <button className="btn bt-rsc shadow mb-2 mb-md-0 bold zoom-bt " type="submit">Rechercher
-                        <i className="bi bi-search ms-2"></i>
+                        <i className="bi bi-search  ms-2 ms-md-0"></i>
                     </button>
                 </div>
             </div>
