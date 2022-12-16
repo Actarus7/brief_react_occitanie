@@ -16,13 +16,13 @@ export function Navbar(props) {
                     </button>
 
 
-                    <div class="collapse navbar-collapse flex-row-reverse no-wrap" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active txt-yl" aria-current="page" href="#" onClick={() => props.setPage('accueil')}>Accueil</a>
+                    <div className="collapse navbar-collapse flex-row-reverse no-wrap" id="navbarNav">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <a className="nav-link active txt-yl" aria-current="page" href="#" onClick={() => props.setPage('accueil')}>Accueil</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link txt-yl" href="#" onClick={() => props.setPage('a propos')}>A Propos</a>
+                            <li className="nav-item">
+                                <a className="nav-link txt-yl" href="#" onClick={() => props.setPage('a propos')}>A Propos</a>
                             </li>
                         </ul>
                     </div>
