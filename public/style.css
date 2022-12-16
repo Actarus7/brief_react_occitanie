@@ -57,3 +57,6 @@
     border-color: #EFB00D !important;
     outline: 0;
 }
+.input-group-append {
+    cursor: pointer;
+}

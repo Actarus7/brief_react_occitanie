@@ -30,41 +30,40 @@ export default function EventCourt(props) {
         else if (type.includes('Insolite')) { image = 'insolite' }
         else if (type.includes('Sports')) { image = 'sport' }
         else if (type.includes('Son et lumière')) { image = 'culturel' }
-        else {image = 'autre'}
+        else { image = 'autre' }
         return image
     }
 
     // affichage
     return (
-        
-            <div className='row border border-danger border-3 rounded-4 p-2 mb-4 mt-4'>
-                <h5>Résultats :</h5>
-                {/* <select className="form-select shadow-sm " aria-label="Default select example"></select> */}                
-                {cardEvent}
-                <nav aria-label="Page navigation">
-                    <ul class="pagination justify-content-center mt-4">
-                        <li class="page-item">
-                            <a class="page-link bg-warning text-dark" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&lt;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link page-link bg-warning text-dark" href="#">{indexPage}</a></li>
-                        <li class="page-item"><a class="page-link page-link bg-warning text-dark" href="#">{indexPage + 1}</a></li>
-                        <li class="page-item"><a class="page-link page-link bg-warning text-dark" href="#">{indexPage + 2}</a></li>
-                        <li class="page-item">
-                            <a class="page-link bg-warning text-dark" href="#" aria-label="Next">
-                                <span aria-hidden="true">&gt;</span>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link bg-warning text-dark" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        
+
+        <div className='row border border-danger border-3 rounded-4 p-2 mb-4 mt-4'>
+            <h5>Résultats :</h5>
+            {cardEvent}
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center mt-4">
+                    <li class="page-item">
+                        <a class="page-link bg-warning text-dark" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&lt;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link page-link bg-warning text-dark" href="#">{indexPage}</a></li>
+                    <li class="page-item"><a class="page-link page-link bg-warning text-dark" href="#">{indexPage + 1}</a></li>
+                    <li class="page-item"><a class="page-link page-link bg-warning text-dark" href="#">{indexPage + 2}</a></li>
+                    <li class="page-item">
+                        <a class="page-link bg-warning text-dark" href="#" aria-label="Next">
+                            <span aria-hidden="true">&gt;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link bg-warning text-dark" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
 
     )
 }
