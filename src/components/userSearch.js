@@ -1,5 +1,7 @@
-export default function UserSearch() {
-
+export default function UserSearch(props) {
+    let selectorTypeOptions = props.typeCategories.map((elm, index) => {
+        return <option value={elm} key={index}>{elm}</option>
+    })
     // affichage
     return (
         <div className=" row d-flex flex-row border border-3 rounded-4 border-danger mt-4 ">
@@ -18,22 +20,24 @@ export default function UserSearch() {
 
 
                     <div className="col-12 col-md-4 mb-2">
-                        <select className="form-select shadow-sm " aria-label="Default select example">
-                            <option selected>Type</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select className="form-select shadow-sm " aria-label="Default select example" onChange={event=> props.handleUserTypeChoice(event.target.value)}>
+                            <option selected>Type d'évènement</option>
+                            {selectorTypeOptions}
                         </select>
                     </div>
 
                     <div className="col-12 col-md-4 mb-2">
+                        <input type="text" className="form-control" placeholder="Lieu de l'évènement" aria-label="search" />
+                        {/* <label for="floatingInput">Lieu de l'évènement</label> */}
+                    </div>
+                    {/* <div className="col-12 col-md-4 mb-2">
                         <select className="form-select shadow-sm" aria-label="Default select example">
                             <option selected>Lieu</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
                         </select>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
