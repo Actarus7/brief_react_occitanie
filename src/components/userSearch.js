@@ -9,7 +9,7 @@ export default function UserSearch(props) {
 
                 <div className=" form-floating mb-3 flex-nowrap shadow-sm">
                     <input type="text" className="form-control" placeholder="Cherchez un evenement" aria-label="search" onChange={event => props.handleUserEventChoice(event.target.value)}/>
-                    <label for="floatingInput">Cherchez un évènement</label>
+                    <label htmlFor="floatingInput">Cherchez un évènement</label>
                 </div>
 
                 <div className=" row d-flex flex-row mb-3 px-0s justify-content-between px-0 ">
