@@ -12,7 +12,10 @@ function App() {
   const [page, setPage] = useState('accueil')
   const [dataSingleEvent, setDataSingleEvent] = useState(undefined)
   const [typeCategories, setTypeCategories] = useState([])
-  //const [dataUserTypeChoice, setDataUserChoice] = useState([])
+  const [userType, setUserType] = useState([])
+  const [userDate, setUserDate] = useState([])
+  const [userPlace, setUserPlace] = useState([])
+  const [userEvent, setUserEvent] = useState([])
 
   useEffect(() => {
     let urls = [];
@@ -77,15 +80,35 @@ function App() {
     setPage('details');
   }
 
-const handleUserTypeChoice = (userTypeChoice) => {
-  console.log(userTypeChoice);
-  const dataEventCopy = [...dataEvent]
-  const newdataEventCopy = dataEventCopy.filter(elm => elm.fields.type_de_manifestation === userTypeChoice)
-  console.log(newdataEventCopy)
-  setDataEventFiltered(newdataEventCopy.filter(elm => elm.fields.type_de_manifestation === userTypeChoice))
-  console.log(dataEventFiltered);
-  console.log(dataEvent);
-}
+  const handleUserTypeChoice = (userTypeChoice) => {
+    const dataEventCopy = [...dataEvent]
+    console.log(userTypeChoice)
+    const newDataEventCopy = dataEventCopy.filter(elm => elm.fields.type_de_manifestation === userTypeChoice)
+    setDataEventFiltered(newDataEventCopy)
+  }
+  
+  const handleUserDateChoice = (userDateChoice) => {
+    const dataEventCopy = [...dataEvent];
+    const newDataEventCopy = dataEventCopy.filter(elm => userDateChoice >= elm.fields.date_debut && userDateChoice <= elm.fields.date_fin)
+    setDataEventFiltered(newDataEventCopy)
+    console.log(userDateChoice)
+  }
+  
+  const handleUserPlaceChoice = (userPlaceChoice) => {
+    const dataEventCopy = [...dataEvent];
+    const newDataEventCopy = dataEventCopy.filter(elm => elm.fields.commune.includes(userPlaceChoice.toUpperCase()))
+    setUserPlace(newDataEventCopy)
+    console.log(userPlaceChoice);
+  }
+  
+  const handleUserEventChoice = (userEventChoice) => {
+    const dataEventCopy = [...dataEvent];
+    const newDataEventCopy = dataEventCopy.filter(elm => elm.fields.nom_de_la_manifestation.includes(userEventChoice.toUpperCase()))
+    setUserEvent(newDataEventCopy)
+    console.log(userEventChoice);
+  }
+
+
 
   //console.log(dataEvent);
   return (
@@ -97,9 +120,9 @@ const handleUserTypeChoice = (userTypeChoice) => {
 
       <main className='container p-3'>
 
-        {page === 'accueil' && <Accueil data={dataEventFiltered} setPage={setPage} handleEventLong={handleEventLong} typeCategories={typeCategories} handleUserTypeChoice={handleUserTypeChoice}></Accueil>}
+        {page === 'accueil' && <Accueil data={dataEventFiltered} setPage={setPage} handleEventLong={handleEventLong} /* handleSubmitUserChoice={handleSubmitUserChoice} */ typeCategories={typeCategories} handleUserTypeChoice={handleUserTypeChoice} handleUserDateChoice={handleUserDateChoice} handleUserPlaceChoice={handleUserPlaceChoice} handleUserEventChoice={handleUserEventChoice}></Accueil>}
         {page === 'a propos' && <Apropos></Apropos>}
-        {page === 'details' && <><UserSearch typeCategories={typeCategories}></UserSearch><EventLong data={dataSingleEvent} ></EventLong ></>}
+        {page === 'details' && <><UserSearch typeCategories={typeCategories} handleUserTypeChoice={handleUserTypeChoice} handleUserDateChoice={handleUserDateChoice}></UserSearch><EventLong data={dataSingleEvent} ></EventLong ></>}
 
 
       </main>
@@ -109,3 +132,68 @@ const handleUserTypeChoice = (userTypeChoice) => {
 }
 
 export default App;
+
+
+
+
+/// A FAIRE 
+/// Ajouter photo dans SingleEvent (remonter GetImageType sur App)
+/// Revoir la pagination (ne reste pas en place)
+
+
+
+/// PARTIE AVEC FORM 
+/// ne fonctionne pas - les évènements arrivent avec le submit mais deviennent undefined
+/// avec des données écrites ne trouve aucune correspondante
+
+/* const handleUserTypeChoice = (userTypeChoice) => {
+  const dataEventCopy = [...dataEvent]
+  console.log(userTypeChoice)
+  const newDataEventCopy = dataEventCopy.filter(elm => elm.fields.type_de_manifestation === userTypeChoice)
+  setUserType(newDataEventCopy)
+}
+
+const handleUserDateChoice = (userDateChoice) => {
+  const dataEventCopy = [...dataEvent];
+  const newDataEventCopy = dataEventCopy.filter(elm => userDateChoice >= elm.fields.date_debut && userDateChoice <= elm.fields.date_fin)
+  setUserDate(newDataEventCopy)
+  console.log(userDateChoice)
+}
+
+const handleUserPlaceChoice = (userPlaceChoice) => {
+  const dataEventCopy = [...dataEvent];
+  const newDataEventCopy = dataEventCopy.filter(elm => elm.fields.commune.includes(userPlaceChoice.toUpperCase()))
+  setUserPlace(newDataEventCopy)
+  console.log(userPlaceChoice);
+}
+
+const handleUserEventChoice = (userEventChoice) => {
+  const dataEventCopy = [...dataEvent];
+  const newDataEventCopy = dataEventCopy.filter(elm => elm.fields.nom_de_la_manifestation.includes(userEventChoice.toUpperCase()))
+  setUserEvent(newDataEventCopy)
+  console.log(userEventChoice);
+}
+
+const handleSubmitUserChoice = () => {
+  const dataEventCopy = [...dataEvent]
+  console.log(userType);
+  console.log(userDate);
+  console.log(userPlace);
+  console.log(userEvent);
+  let newUserDate
+  let newUserEvent
+  let newUserPlace
+  let newUserType
+  if (userEvent === []) { newUserEvent = [...dataEvent] }
+  if (userDate === []) { newUserDate = [...dataEvent] }
+  if (userPlace === []) { newUserPlace = [...dataEvent] }
+  if (userType === []) { newUserType = [...dataEvent] }
+  console.log(newUserDate)
+  console.log(newUserEvent);
+  console.log(newUserPlace);
+  console.log(newUserType);
+  console.log(dataEventCopy);
+  const newDataEventCopy = dataEventCopy.filter(elm => userDate.includes(elm) && userEvent.includes(elm) && userPlace.includes(elm) && userType.includes(elm))
+  setDataEvent(newDataEventCopy)
+  console.log(newDataEventCopy);
+} */
