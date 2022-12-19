@@ -93,3 +93,7 @@
 .large {
     width: auto;
 }
+
+.img {
+    max-height: 550px;
+}
