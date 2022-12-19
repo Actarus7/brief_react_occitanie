@@ -43,7 +43,7 @@ export default function EventLong({ data }) {
                 <div>
                     {data.lieu_adresse_1 || data.lieu_adresse_2 !== undefined ? <p>Adresse: {data.lieu_adresse_1}
                         <br />
-                        {data.lieu_adresse_2}
+                        {data.lieu_adresse_2}<br/>
                         {data.commune}</p> : ""}
                 </div>
                 <div>

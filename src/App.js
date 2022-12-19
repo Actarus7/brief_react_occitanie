@@ -201,7 +201,7 @@ function App() {
 
         {page === 'accueil' && <Accueil data={dataEventFiltered} setPage={setPage} handleEventLong={handleEventLong} handleSubmitUserChoice={handleSubmitUserChoice} typeCategories={typeCategories} handleUserTypeChoice={handleUserTypeChoice} handleUserDateChoice={handleUserDateChoice} handleUserPlaceChoice={handleUserPlaceChoice} handleUserEventChoice={handleUserEventChoice}></Accueil>}
         {page === 'a propos' && <Apropos></Apropos>}
-        {page === 'details' && <><UserSearch typeCategories={typeCategories} handleUserTypeChoice={handleUserTypeChoice} handleUserDateChoice={handleUserDateChoice}></UserSearch><EventLong data={dataSingleEvent} ></EventLong ></>}
+        {page === 'details' && <><UserSearch typeCategories={typeCategories} handleUserTypeChoice={handleUserTypeChoice} handleUserDateChoice={handleUserDateChoice} handleUserPlaceChoice={handleUserPlaceChoice} handleUserEventChoice={handleUserEventChoice}></UserSearch><EventLong data={dataSingleEvent} ></EventLong ></>}
 
 
       </main>
